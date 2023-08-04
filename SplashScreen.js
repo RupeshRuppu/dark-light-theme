@@ -8,7 +8,7 @@ const SplashScreen = () => {
         style={{
           fontSize: 30,
           fontWeight: '500',
-          color: 'orange',
+          color: '#DE5E69',
         }}>
         Splash Screen
       </Text>

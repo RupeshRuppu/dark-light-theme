@@ -1,14 +1,10 @@
 import {NavigationContainer} from '@react-navigation/native';
-import AppStack from './stacks/AppStack';
 import {useColorScheme} from 'react-native';
-import ThemeContextProvider, {
-  THEME_TYPES,
-  useThemeContext,
-} from './contexts/ThemeContext';
+import ThemeContextProvider, {useThemeContext} from './contexts/ThemeContext';
 import {getItemStorage, saveMultipleKeysInStorage} from './storage';
 import {useEffect, useState} from 'react';
 import SplashScreen from './SplashScreen';
-import Colors from './colors';
+import RootStackNavigator from './stacks/RootStack';
 
 const App = () => {
   const {theme, dispatch} = useThemeContext();
@@ -18,7 +14,6 @@ const App = () => {
   console.log({appearance, theme});
 
   useEffect(() => {
-    console.log('mounted');
     /* IIFE to get user's default theme settings. */
     (async () => {
       const initial = await getItemStorage('INITIAL');
@@ -50,7 +45,7 @@ const App = () => {
   if (showSplashScreen) return <SplashScreen />;
   return (
     <NavigationContainer>
-      <AppStack />
+      <RootStackNavigator />
     </NavigationContainer>
   );
 };

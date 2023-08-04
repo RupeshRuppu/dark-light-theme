@@ -1,13 +1,8 @@
 import {View, Text, TouchableOpacity} from 'react-native';
-import React from 'react';
 import {THEME_TYPES, useThemeContext} from '../contexts/ThemeContext';
-import Colors from '../colors';
 
 const Profile = ({navigation}) => {
   const {theme} = useThemeContext();
-
-  const colors =
-    theme === THEME_TYPES.DARK ? Colors.dark.colors : Colors.light.colors;
   return (
     <View
       style={{

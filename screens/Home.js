@@ -1,5 +1,5 @@
 import {Text, View, TextInput, TouchableOpacity, Switch} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {THEME_TYPES, useThemeContext} from '../contexts/ThemeContext';
 import Colors from '../colors';
 import {saveKeyInStorage} from '../storage';
@@ -81,8 +81,34 @@ const Home = ({navigation}) => {
           navigation.navigate('Profile');
         }}>
         <Text
-          style={{color: THEME_TYPES.DARK === theme ? '#FFFFFF' : '#000000'}}>
+          style={{
+            color: THEME_TYPES.DARK === theme ? '#FFFFFF' : '#000000',
+          }}>
           Go to Profile
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={{marginTop: 20}}
+        onPress={() => {
+          navigation.toggleDrawer();
+        }}>
+        <Text
+          style={{
+            color: THEME_TYPES.DARK === theme ? '#FFFFFF' : '#000000',
+          }}>
+          Toggle Drawer
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={{marginTop: 20}}
+        onPress={() => {
+          navigation.navigate('Contacts');
+        }}>
+        <Text
+          style={{
+            color: THEME_TYPES.DARK === theme ? '#FFFFFF' : '#000000',
+          }}>
+          Go to Contacts
         </Text>
       </TouchableOpacity>
     </View>
