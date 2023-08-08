@@ -1,26 +1,10 @@
 import {Text, SafeAreaView, Dimensions} from 'react-native';
-import React, {useEffect} from 'react';
 import {THEME_TYPES, useThemeContext} from '../contexts/ThemeContext';
 
 const {width, height} = Dimensions.get('screen');
 
-const Contacts = ({navigation}) => {
+const Contacts = () => {
   const {theme} = useThemeContext();
-
-  /* Hiding bottom tabs in specific screen. */
-
-  useEffect(() => {
-    navigation.getParent()?.setOptions({
-      tabBarStyle: {
-        display: 'none',
-      },
-    });
-    return () =>
-      navigation.getParent()?.setOptions({
-        tabBarStyle: undefined,
-      });
-  }, [navigation]);
-
   return (
     <SafeAreaView
       style={{
